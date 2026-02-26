@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none'; form-action 'self';" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+    <meta name="description"
+        content="Browse the full Kings Bakes menu – cakes, pastries, puffs, snacks, and beverages. Order via WhatsApp in Tiruchirappalli." />
+    <meta name="robots" content="index, follow" />
+    <title>Menu – Kings Bakes | Cakes, Pastries, Puffs & More</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎂</text></svg>" />
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav id="navbar" role="navigation" aria-label="Main navigation">
+        <div class="container nav-inner">
+            <a href="index.html" class="nav-logo" aria-label="Kings Bakes Home">
+                <div class="logo-icon">🎂</div>
+                <span class="logo-text">Kings <span>Bakes</span></span>
+            </a>
+            <ul class="nav-links" id="navLinks" role="menubar">
+                <li role="none"><a href="index.html" role="menuitem" id="nav-home">Home</a></li>
+                <li role="none"><a href="about.html" role="menuitem" id="nav-about">About</a></li>
+                <li role="none"><a href="menu.html" role="menuitem" id="nav-menu">Menu</a></li>
+                <li role="none"><a href="contact.html" role="menuitem" id="nav-contact">Contact</a></li>
+                <li role="none" class="nav-cta">
+                    <a href="https://wa.me/917639277171?text=Hi%20Kings%20Bakes!%20I%20want%20to%20place%20an%20order."
+                        class="btn btn-whatsapp" rel="noopener noreferrer" target="_blank" id="nav-order-btn">
+                        💬 Order Now
+                    </a>
+                </li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle mobile menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero" aria-label="Menu page header">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>›</span>
+                <span>Menu</span>
+            </div>
+            <h1 class="page-hero-title">Our Menu</h1>
+            <p class="page-hero-sub">Freshly baked every day – explore our full range of cakes, pastries, puffs, snacks
+                and beverages.</p>
+        </div>
+    </section>
+
+    <!-- MENU SECTION -->
+    <section class="menu-section">
+        <div class="container">
+
+            <!-- Filter Buttons -->
+            <div class="menu-filters" role="group" aria-label="Menu category filters">
+                <button class="filter-btn active" data-filter="all" id="filter-all">All Items</button>
+                <button class="filter-btn" data-filter="cakes" id="filter-cakes">🎂 Cakes</button>
+                <button class="filter-btn" data-filter="pastries" id="filter-pastries">🥐 Pastries</button>
+                <button class="filter-btn" data-filter="puffs" id="filter-puffs">🥟 Puffs</button>
+                <button class="filter-btn" data-filter="snacks" id="filter-snacks">🍿 Snacks</button>
+                <button class="filter-btn" data-filter="beverages" id="filter-beverages">🥤 Beverages</button>
+            </div>
+
+            <!-- ── CAKES ── -->
+            <div class="menu-category reveal" data-cat="cakes" id="cakes">
+                <div class="category-header">
+                    <h2>🎂 Cakes</h2>
+                    <div class="line"></div>
+                </div>
+                <div class="menu-grid">
+                    <article class="menu-card">
+                        <div class="menu-card-img">
+                            <img src="images/cake.png" alt="Birthday Cake" loading="lazy" />
+                        </div>
+                        <div class="menu-card-body">
+                            <h3 class="menu-card-name">Birthday Cake (1 kg)</h3>
+                            <p class="menu-card-desc">Layered vanilla/chocolate cream cake, custom message available.
+                            </p>
+                            <div class="menu-card-row">
+                                <span class="menu-price">₹650</span>
+                                <button class="menu-order-btn" data-order="Birthday Cake 1kg" id="order-bday-btn">Order
+                                    💬</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="menu-card">
+                        <div class="menu-card-img">
+                            <img src="images/cake.png" alt="Black Forest Cake" loading="lazy" />
+                        </div>
+                        <div class="menu-card-body">
+                            <h3 class="menu-card-name">Black Forest Cake (1 kg)</h3>
+                            <p class="menu-card-desc">Rich chocolate sponge with cherries and whipped cream layers.</p>
+                            <div class="menu-card-row">
+                                <span class="menu-price">₹750</span>
+                                <button class="menu-order-btn" data-order="Black Forest Cake 1kg"
+                                    id="order-blackforest-btn">Order 💬</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="menu-card">
+                        <div class="menu-card-img">
+                            <img src="images/cake.png" alt="Pineapple Cake" loading="lazy" />
+                        </div>
+                        <div class="menu-card-body">
+                            <h3 class="menu-card-name">Pineapple Cake (500 g)</h3>
+                            <p class="menu-card-desc">Light and creamy pineapple flavoured cake, perfect for gifting.
+                            </p>
+                            <div class="menu-card-row">
+                                <span class="menu-price">₹380</span>
+                                <button class="menu-order-btn" data-order="Pineapple Cake 500g"
+                                    id="order-pineapple-btn">Order 💬</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="menu-card">
+                        <div class="menu-card-img">
+                            <img src="images/cake.png" alt="Cupcakes" loading="lazy" />
+                        </div>
+                        <div class="menu-card-body">
+                            <h3 class="menu-card-name">Cupcakes (6 pcs)</h3>
+                            <p class="menu-card-desc">Mini cupcakes with whipped frosting – assorted flavours.</p>
+                            <div class="menu-card-row">
+                                <span class="menu-price">₹240</span>
+                                <button class="menu-order-btn" data-order="Cupcakes set of 6"
+                                    id="order-cupcake-btn">Order 💬</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- ── PASTRIES ── -->
+            <div class="menu-category reveal" data-cat="pastries" id="pastries">
+                <div class="category-header">
+                    <h2>🥐 Pastries</h2>
+                    <div class="line"></div>
+                </div>
+                <div class="menu-grid">
+                    <article class="menu-card">
+                        <div class="menu-card-img">
+                            <img src="images/pastry.png" alt="Butter Croissant" loading="lazy" />
+                        </div>
+                        <div class="menu-card-body">
+                            <h3 class="menu-card-name">Butter Croissant</h3>
+                            <p class="menu-card-desc">Flaky golden croissant, baked fresh each morning.</p>
+                            <div class="menu-card-row">
+                                <span class="menu-price">₹45</span>
+                                <button class="menu-order-btn" data-order="Butter Croissant"
+                                    id="order-croissant-btn">Order 💬</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="menu-card">
+                        <div class="menu-card-img">
+                            <img src="images/pastry.png" alt="Chocolate Pastry" loading="lazy" />
+                        </div>
+                        <div class="menu-card-body">
+                            <h3 class="menu-card-name">Chocolate Pastry</h3>
+                            <p class="menu-card-desc">Rich chocolate cream on a soft sponge slice.</p>
+                            <div class="menu-card-row">
+                                <span class="menu-price">₹60</span>
+                                <button class="menu-order-btn" data-order="Chocolate Pastry"
+                                    id="order-chocpastry-btn">Order 💬</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="menu-card">
+                        <div class="menu-card-img">
+                            <img src="images/pastry.png" alt="Fruit Pastry" loading="lazy" />
+                        </div>
+                        <div class="menu-card-body">
+                            <h3 class="menu-card-name">Fruit Pastry</h3>
+                            <p class="menu-card-desc">Fresh seasonal fruits on vanilla cream and sponge.</p>
+                            <div class="menu-card-row">
+                                <span class="menu-price">₹65</span>
+                                <button class="menu-order-btn" data-order="Fruit Pastry"
+                                    id="order-fruitpastry-btn">Order 💬</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="menu-card">
+                        <div class="menu-card-img">
+                            <img src="images/pastry.png" alt="Danish Roll" loading="lazy" />
+                        </div>
+                        <div class="menu-card-body">
+                            <h3 class="menu-card-name">Danish Roll</h3>
+                            <p class="menu-card-desc">Sweet spiral roll glazed with sugar and cinnamon.</p>
+                            <div class="menu-card-row">
+                                <span class="menu-price">₹40</span>
+                                <button class="menu-order-btn" data-order="Danish Roll" id="order-danish-btn">Order
+                                    💬</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- ── PUFFS ── -->
+            <div class="menu-category reveal" data-cat="puffs" id="puffs">
+                <div class="category-header">
+                    <h2>🥟 Puffs</h2>
+                    <div class="line"></div>
+                </div>
+                <div class="menu-grid">
+                    <article class="menu-card">
+                        <div class="menu-card-img">
+                            <img src="images/snack.png" alt="Veg Puff" loading="lazy" />
+                        </div>
+                        <div class="menu-card-body">
+                            <h3 class="menu-card-name">Veg Puff</h3>
+                            <p class="menu-card-desc">Crispy puff filled with spiced potato and vegetable masala.</p>
+                            <div class="menu-card-row">
+                                <span class="menu-price">₹18</span>
+                                <button class="menu-order-btn" data-order="Veg Puff" id="order-vegpuff-btn">Order
+                                    💬</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="menu-card">
+                        <div class="menu-card-img">
+                            <img src="images/snack.png" alt="Egg Puff" loading="lazy" />
+                        </div>
+                        <div class="menu-card-body">
+                            <h3 class="menu-card-name">Egg Puff</h3>
+                            <p class="menu-card-desc">Flaky shell with a halved boiled egg and onion filling.</p>
+                            <div class="menu-card-row">
+                                <span class="menu-price">₹22</span>
+                                <button class="menu-order-btn" data-order="Egg Puff" id="order-eggpuff-btn">Order
+                                    💬</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="menu-card">
+                        <div class="menu-card-img">
+                            <img src="images/snack.png" alt="Chicken Puff" loading="lazy" />
+                        </div>
+                        <div class="menu-card-body">
+                            <h3 class="menu-card-name">Chicken Puff</h3>
+                            <p class="menu-card-desc">Juicy spiced chicken filling in a golden crispy puff shell.</p>
+                            <div class="menu-card-row">
+                                <span class="menu-price">₹28</span>
+                                <button class="menu-order-btn" data-order="Chicken Puff"
+                                    id="order-chickenpuff-btn">Order 💬</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="menu-card">
+                        <div class="menu-card-img">
+                            <img src="images/snack.png" alt="Cheese Puff" loading="lazy" />
+                        </div>
+                        <div class="menu-card-body">
+                            <h3 class="menu-card-name">Cheese Puff</h3>
+                            <p class="menu-card-desc">Melted cheese and herbs in a buttery puff pastry shell.</p>
+                            <div class="menu-card-row">
+                                <span class="menu-price">₹30</span>
+                                <button class="menu-order-btn" data-order="Cheese Puff" id="order-cheesepuff-btn">Order
+                                    💬</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- ── SNACKS ── -->
+            <div class="menu-category reveal" data-cat="snacks" id="snacks">
+                <div class="category-header">
+                    <h2>🍿 Snacks</h2>
+                    <div class="line"></div>
+                </div>
+                <div class="menu-grid">
+                    <article class="menu-card">
+                        <div class="menu-card-img">
+                            <img src="images/snack.png" alt="Bread Roll" loading="lazy" />
+                        </div>
+                        <div class="menu-card-body">
+                            <h3 class="menu-card-name">Bread Roll</h3>
+                            <p class="menu-card-desc">Crunchy outside, soft spiced potato filling inside.</p>
+                            <div class="menu-card-row">
+                                <span class="menu-price">₹15</span>
+                                <button class="menu-order-btn" data-order="Bread Roll" id="order-breadroll-btn">Order
+                                    💬</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="menu-card">
+                        <div class="menu-card-img">
+                            <img src="images/snack.png" alt="Samosa" loading="lazy" />
+                        </div>
+                        <div class="menu-card-body">
+                            <h3 class="menu-card-name">Samosa (2 pcs)</h3>
+                            <p class="menu-card-desc">Crispy triangular pastry filled with savoury spiced potatoes.</p>
+                            <div class="menu-card-row">
+                                <span class="menu-price">₹20</span>
+                                <button class="menu-order-btn" data-order="Samosa 2 pieces" id="order-samosa-btn">Order
+                                    💬</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="menu-card">
+                        <div class="menu-card-img">
+                            <img src="images/snack.png" alt="Sandwich" loading="lazy" />
+                        </div>
+                        <div class="menu-card-body">
+                            <h3 class="menu-card-name">Veg Sandwich</h3>
+                            <p class="menu-card-desc">Fresh veggies, cheese spread and mayo in toasted bread.</p>
+                            <div class="menu-card-row">
+                                <span class="menu-price">₹55</span>
+                                <button class="menu-order-btn" data-order="Veg Sandwich" id="order-sandwich-btn">Order
+                                    💬</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="menu-card">
+                        <div class="menu-card-img">
+                            <img src="images/snack.png" alt="Rusks" loading="lazy" />
+                        </div>
+                        <div class="menu-card-body">
+                            <h3 class="menu-card-name">Milk Rusks (6 pcs)</h3>
+                            <p class="menu-card-desc">Twice-baked sweet bread rusks, perfect with tea or coffee.</p>
+                            <div class="menu-card-row">
+                                <span class="menu-price">₹30</span>
+                                <button class="menu-order-btn" data-order="Milk Rusks 6 pieces"
+                                    id="order-rusk-btn">Order 💬</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- ── BEVERAGES ── -->
+            <div class="menu-category reveal" data-cat="beverages" id="beverages">
+                <div class="category-header">
+                    <h2>🥤 Beverages</h2>
+                    <div class="line"></div>
+                </div>
+                <div class="menu-grid">
+                    <article class="menu-card">
+                        <div class="menu-card-img">
+                            <img src="images/beverage.png" alt="Chocolate Milkshake" loading="lazy" />
+                        </div>
+                        <div class="menu-card-body">
+                            <h3 class="menu-card-name">Chocolate Milkshake</h3>
+                            <p class="menu-card-desc">Thick, creamy chocolate milkshake topped with whipped cream.</p>
+                            <div class="menu-card-row">
+                                <span class="menu-price">₹80</span>
+                                <button class="menu-order-btn" data-order="Chocolate Milkshake"
+                                    id="order-chocshake-btn">Order 💬</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="menu-card">
+                        <div class="menu-card-img">
+                            <img src="images/beverage.png" alt="Mango Juice" loading="lazy" />
+                        </div>
+                        <div class="menu-card-body">
+                            <h3 class="menu-card-name">Mango Juice</h3>
+                            <p class="menu-card-desc">Fresh squeezed Alfonso mango juice – sweet and refreshing.</p>
+                            <div class="menu-card-row">
+                                <span class="menu-price">₹60</span>
+                                <button class="menu-order-btn" data-order="Mango Juice" id="order-mango-btn">Order
+                                    💬</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="menu-card">
+                        <div class="menu-card-img">
+                            <img src="images/beverage.png" alt="Tender Coconut" loading="lazy" />
+                        </div>
+                        <div class="menu-card-body">
+                            <h3 class="menu-card-name">Vanilla Milkshake</h3>
+                            <p class="menu-card-desc">Cold creamy vanilla shake, a classic bakery companion.</p>
+                            <div class="menu-card-row">
+                                <span class="menu-price">₹70</span>
+                                <button class="menu-order-btn" data-order="Vanilla Milkshake"
+                                    id="order-vanshake-btn">Order 💬</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="menu-card">
+                        <div class="menu-card-img">
+                            <img src="images/beverage.png" alt="Cold Coffee" loading="lazy" />
+                        </div>
+                        <div class="menu-card-body">
+                            <h3 class="menu-card-name">Cold Coffee</h3>
+                            <p class="menu-card-desc">Iced coffee blended with milk and sugar – energy in a glass.</p>
+                            <div class="menu-card-row">
+                                <span class="menu-price">₹65</span>
+                                <button class="menu-order-btn" data-order="Cold Coffee" id="order-coldcoffee-btn">Order
+                                    💬</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Order CTA -->
+            <div style="background:linear-gradient(135deg,var(--choco),var(--choco-mid));border-radius:var(--radius-lg);padding:48px;text-align:center;margin-top:64px;"
+                class="reveal">
+                <h2 style="font-family:'Playfair Display',serif;color:#fff;font-size:1.8rem;margin-bottom:12px;">Can't
+                    See What You're Looking For?</h2>
+                <p style="color:rgba(255,245,228,0.75);margin-bottom:28px;">Message us on WhatsApp – we love custom
+                    orders and special requests!</p>
+                <a href="https://wa.me/917639277171?text=Hi%20Kings%20Bakes!%20I%20have%20a%20custom%20order%20request."
+                    class="btn btn-whatsapp" rel="noopener noreferrer" target="_blank" id="menu-custom-order-btn"
+                    style="font-size:1rem;padding:15px 34px;">
+                    💬 Place Custom Order
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo-text">Kings <span>Bakes</span></div>
+                    <p>A beloved local bakery serving freshly baked cakes, pastries, and snacks to the people of
+                        Tiruchirappalli with passion and love since 2019.</p>
+                    <div class="social-links">
+                        <a href="https://wa.me/917639277171" target="_blank" rel="noopener noreferrer"
+                            class="social-link" aria-label="WhatsApp">💬</a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link"
+                            aria-label="Instagram">📸</a>
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-link"
+                            aria-label="Facebook">👍</a>
+                        <a href="https://zomato.com" target="_blank" rel="noopener noreferrer" class="social-link"
+                            aria-label="Zomato">🍽️</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="#cakes">Cakes</a></li>
+                        <li><a href="#pastries">Pastries</a></li>
+                        <li><a href="#puffs">Puffs</a></li>
+                        <li><a href="#snacks">Snacks</a></li>
+                        <li><a href="#beverages">Beverages</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:07639277171">📞 076392 77171</a></li>
+                        <li><a href="https://wa.me/917639277171" target="_blank" rel="noopener noreferrer">💬 WhatsApp
+                                Order</a></li>
+                        <li style="color:rgba(255,245,228,0.6);font-size:0.88rem;line-height:1.5;margin-top:8px;">
+                            Sathanur Main Rd, Sundar Nagar, Tiruchirappalli – 620021
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Kings Bakes. All rights reserved. Made with <span class="heart">❤️</span> in Trichy.</p>
+                <div class="sec-badge">🔒 Secured Website</div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toast" role="alert" aria-live="polite"></div>
+    <script src="js/security.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
