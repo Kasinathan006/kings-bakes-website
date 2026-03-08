@@ -83,7 +83,7 @@ const KBSecurity = (function () {
       return { limited: true, retryIn: retry };
     }
     data.push(now);
-    try { localStorage.setItem(key, JSON.stringify(data)); } catch (_) {}
+    try { localStorage.setItem(key, JSON.stringify(data)); } catch (_) { }
     return { limited: false };
   }
 
@@ -178,3 +178,4 @@ const KBSecurity = (function () {
 
 // Auto-init
 document.addEventListener('DOMContentLoaded', () => KBSecurity.init());
+window.KBSecurity = KBSecurity;

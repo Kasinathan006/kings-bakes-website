@@ -54,8 +54,7 @@
                 <span>Menu</span>
             </div>
             <h1 class="page-hero-title">Our Menu</h1>
-            <p class="page-hero-sub">Freshly baked every day – explore our full range of cakes, pastries, puffs, snacks
-                and beverages.</p>
+            <p class="page-hero-sub">85+ handcrafted cake flavours — Royal Icing, Classic, Premium, Chef's Signature, and Cheese Cakes. Order via WhatsApp.</p>
         </div>
     </section>
 
@@ -63,345 +62,44 @@
     <section class="menu-section">
         <div class="container">
 
+            <!-- Eggless Info Bar -->
+            <div id="menu-note-bar" class="menu-note-bar" style="display:none;" aria-label="Important cake notes">
+                <span class="mnb-icon">&#9733;</span>
+                <span>Eggless cakes available at <strong>+&#8377;100/kg</strong></span>
+                <span class="mnb-sep">&#8226;</span>
+                <span>Prices may vary for custom designs</span>
+                <span class="mnb-sep">&#8226;</span>
+                <span>Keep refrigerated until serving</span>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="menu-search-wrap">
+                <span class="search-icon">&#128269;</span>
+                <input
+                    type="search"
+                    id="searchMenu"
+                    class="menu-search-input"
+                    placeholder="Search any cake flavour..."
+                    autocomplete="off"
+                    aria-label="Search menu items"
+                />
+            </div>
+
             <!-- Filter Buttons -->
-            <div class="menu-filters" role="group" aria-label="Menu category filters">
-                <button class="filter-btn active" data-filter="all" id="filter-all">All Items</button>
-                <button class="filter-btn" data-filter="cakes" id="filter-cakes">🎂 Cakes</button>
-                <button class="filter-btn" data-filter="pastries" id="filter-pastries">🥐 Pastries</button>
-                <button class="filter-btn" data-filter="puffs" id="filter-puffs">🥟 Puffs</button>
-                <button class="filter-btn" data-filter="snacks" id="filter-snacks">🍿 Snacks</button>
-                <button class="filter-btn" data-filter="beverages" id="filter-beverages">🥤 Beverages</button>
+            <div class="menu-filters" role="group" aria-label="Cake category filters">
+                <button class="filter-btn active" data-filter="all" id="filter-all">All Categories</button>
+                <button class="filter-btn" data-filter="royal-icing" id="filter-royal">&#128081; Royal Icing</button>
+                <button class="filter-btn" data-filter="classic" id="filter-classic">&#127874; Classic</button>
+                <button class="filter-btn" data-filter="premium" id="filter-premium">&#128142; Premium Range</button>
+                <button class="filter-btn" data-filter="signature" id="filter-signature">&#11088; Chef's Signature</button>
+                <button class="filter-btn" data-filter="cheese" id="filter-cheese">&#129361; Cheese Cakes</button>
             </div>
 
-            <!-- ── CAKES ── -->
-            <div class="menu-category reveal" data-cat="cakes" id="cakes">
-                <div class="category-header">
-                    <h2>🎂 Cakes</h2>
-                    <div class="line"></div>
-                </div>
-                <div class="menu-grid">
-                    <article class="menu-card">
-                        <div class="menu-card-img">
-                            <img src="images/cake.png" alt="Birthday Cake" loading="lazy" />
-                        </div>
-                        <div class="menu-card-body">
-                            <h3 class="menu-card-name">Birthday Cake (1 kg)</h3>
-                            <p class="menu-card-desc">Layered vanilla/chocolate cream cake, custom message available.
-                            </p>
-                            <div class="menu-card-row">
-                                <span class="menu-price">₹650</span>
-                                <button class="menu-order-btn" data-order="Birthday Cake 1kg" id="order-bday-btn">Order
-                                    💬</button>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="menu-card">
-                        <div class="menu-card-img">
-                            <img src="images/cake.png" alt="Black Forest Cake" loading="lazy" />
-                        </div>
-                        <div class="menu-card-body">
-                            <h3 class="menu-card-name">Black Forest Cake (1 kg)</h3>
-                            <p class="menu-card-desc">Rich chocolate sponge with cherries and whipped cream layers.</p>
-                            <div class="menu-card-row">
-                                <span class="menu-price">₹750</span>
-                                <button class="menu-order-btn" data-order="Black Forest Cake 1kg"
-                                    id="order-blackforest-btn">Order 💬</button>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="menu-card">
-                        <div class="menu-card-img">
-                            <img src="images/cake.png" alt="Pineapple Cake" loading="lazy" />
-                        </div>
-                        <div class="menu-card-body">
-                            <h3 class="menu-card-name">Pineapple Cake (500 g)</h3>
-                            <p class="menu-card-desc">Light and creamy pineapple flavoured cake, perfect for gifting.
-                            </p>
-                            <div class="menu-card-row">
-                                <span class="menu-price">₹380</span>
-                                <button class="menu-order-btn" data-order="Pineapple Cake 500g"
-                                    id="order-pineapple-btn">Order 💬</button>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="menu-card">
-                        <div class="menu-card-img">
-                            <img src="images/cake.png" alt="Cupcakes" loading="lazy" />
-                        </div>
-                        <div class="menu-card-body">
-                            <h3 class="menu-card-name">Cupcakes (6 pcs)</h3>
-                            <p class="menu-card-desc">Mini cupcakes with whipped frosting – assorted flavours.</p>
-                            <div class="menu-card-row">
-                                <span class="menu-price">₹240</span>
-                                <button class="menu-order-btn" data-order="Cupcakes set of 6"
-                                    id="order-cupcake-btn">Order 💬</button>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-
-            <!-- ── PASTRIES ── -->
-            <div class="menu-category reveal" data-cat="pastries" id="pastries">
-                <div class="category-header">
-                    <h2>🥐 Pastries</h2>
-                    <div class="line"></div>
-                </div>
-                <div class="menu-grid">
-                    <article class="menu-card">
-                        <div class="menu-card-img">
-                            <img src="images/pastry.png" alt="Butter Croissant" loading="lazy" />
-                        </div>
-                        <div class="menu-card-body">
-                            <h3 class="menu-card-name">Butter Croissant</h3>
-                            <p class="menu-card-desc">Flaky golden croissant, baked fresh each morning.</p>
-                            <div class="menu-card-row">
-                                <span class="menu-price">₹45</span>
-                                <button class="menu-order-btn" data-order="Butter Croissant"
-                                    id="order-croissant-btn">Order 💬</button>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="menu-card">
-                        <div class="menu-card-img">
-                            <img src="images/pastry.png" alt="Chocolate Pastry" loading="lazy" />
-                        </div>
-                        <div class="menu-card-body">
-                            <h3 class="menu-card-name">Chocolate Pastry</h3>
-                            <p class="menu-card-desc">Rich chocolate cream on a soft sponge slice.</p>
-                            <div class="menu-card-row">
-                                <span class="menu-price">₹60</span>
-                                <button class="menu-order-btn" data-order="Chocolate Pastry"
-                                    id="order-chocpastry-btn">Order 💬</button>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="menu-card">
-                        <div class="menu-card-img">
-                            <img src="images/pastry.png" alt="Fruit Pastry" loading="lazy" />
-                        </div>
-                        <div class="menu-card-body">
-                            <h3 class="menu-card-name">Fruit Pastry</h3>
-                            <p class="menu-card-desc">Fresh seasonal fruits on vanilla cream and sponge.</p>
-                            <div class="menu-card-row">
-                                <span class="menu-price">₹65</span>
-                                <button class="menu-order-btn" data-order="Fruit Pastry"
-                                    id="order-fruitpastry-btn">Order 💬</button>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="menu-card">
-                        <div class="menu-card-img">
-                            <img src="images/pastry.png" alt="Danish Roll" loading="lazy" />
-                        </div>
-                        <div class="menu-card-body">
-                            <h3 class="menu-card-name">Danish Roll</h3>
-                            <p class="menu-card-desc">Sweet spiral roll glazed with sugar and cinnamon.</p>
-                            <div class="menu-card-row">
-                                <span class="menu-price">₹40</span>
-                                <button class="menu-order-btn" data-order="Danish Roll" id="order-danish-btn">Order
-                                    💬</button>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-
-            <!-- ── PUFFS ── -->
-            <div class="menu-category reveal" data-cat="puffs" id="puffs">
-                <div class="category-header">
-                    <h2>🥟 Puffs</h2>
-                    <div class="line"></div>
-                </div>
-                <div class="menu-grid">
-                    <article class="menu-card">
-                        <div class="menu-card-img">
-                            <img src="images/snack.png" alt="Veg Puff" loading="lazy" />
-                        </div>
-                        <div class="menu-card-body">
-                            <h3 class="menu-card-name">Veg Puff</h3>
-                            <p class="menu-card-desc">Crispy puff filled with spiced potato and vegetable masala.</p>
-                            <div class="menu-card-row">
-                                <span class="menu-price">₹18</span>
-                                <button class="menu-order-btn" data-order="Veg Puff" id="order-vegpuff-btn">Order
-                                    💬</button>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="menu-card">
-                        <div class="menu-card-img">
-                            <img src="images/snack.png" alt="Egg Puff" loading="lazy" />
-                        </div>
-                        <div class="menu-card-body">
-                            <h3 class="menu-card-name">Egg Puff</h3>
-                            <p class="menu-card-desc">Flaky shell with a halved boiled egg and onion filling.</p>
-                            <div class="menu-card-row">
-                                <span class="menu-price">₹22</span>
-                                <button class="menu-order-btn" data-order="Egg Puff" id="order-eggpuff-btn">Order
-                                    💬</button>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="menu-card">
-                        <div class="menu-card-img">
-                            <img src="images/snack.png" alt="Chicken Puff" loading="lazy" />
-                        </div>
-                        <div class="menu-card-body">
-                            <h3 class="menu-card-name">Chicken Puff</h3>
-                            <p class="menu-card-desc">Juicy spiced chicken filling in a golden crispy puff shell.</p>
-                            <div class="menu-card-row">
-                                <span class="menu-price">₹28</span>
-                                <button class="menu-order-btn" data-order="Chicken Puff"
-                                    id="order-chickenpuff-btn">Order 💬</button>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="menu-card">
-                        <div class="menu-card-img">
-                            <img src="images/snack.png" alt="Cheese Puff" loading="lazy" />
-                        </div>
-                        <div class="menu-card-body">
-                            <h3 class="menu-card-name">Cheese Puff</h3>
-                            <p class="menu-card-desc">Melted cheese and herbs in a buttery puff pastry shell.</p>
-                            <div class="menu-card-row">
-                                <span class="menu-price">₹30</span>
-                                <button class="menu-order-btn" data-order="Cheese Puff" id="order-cheesepuff-btn">Order
-                                    💬</button>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-
-            <!-- ── SNACKS ── -->
-            <div class="menu-category reveal" data-cat="snacks" id="snacks">
-                <div class="category-header">
-                    <h2>🍿 Snacks</h2>
-                    <div class="line"></div>
-                </div>
-                <div class="menu-grid">
-                    <article class="menu-card">
-                        <div class="menu-card-img">
-                            <img src="images/snack.png" alt="Bread Roll" loading="lazy" />
-                        </div>
-                        <div class="menu-card-body">
-                            <h3 class="menu-card-name">Bread Roll</h3>
-                            <p class="menu-card-desc">Crunchy outside, soft spiced potato filling inside.</p>
-                            <div class="menu-card-row">
-                                <span class="menu-price">₹15</span>
-                                <button class="menu-order-btn" data-order="Bread Roll" id="order-breadroll-btn">Order
-                                    💬</button>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="menu-card">
-                        <div class="menu-card-img">
-                            <img src="images/snack.png" alt="Samosa" loading="lazy" />
-                        </div>
-                        <div class="menu-card-body">
-                            <h3 class="menu-card-name">Samosa (2 pcs)</h3>
-                            <p class="menu-card-desc">Crispy triangular pastry filled with savoury spiced potatoes.</p>
-                            <div class="menu-card-row">
-                                <span class="menu-price">₹20</span>
-                                <button class="menu-order-btn" data-order="Samosa 2 pieces" id="order-samosa-btn">Order
-                                    💬</button>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="menu-card">
-                        <div class="menu-card-img">
-                            <img src="images/snack.png" alt="Sandwich" loading="lazy" />
-                        </div>
-                        <div class="menu-card-body">
-                            <h3 class="menu-card-name">Veg Sandwich</h3>
-                            <p class="menu-card-desc">Fresh veggies, cheese spread and mayo in toasted bread.</p>
-                            <div class="menu-card-row">
-                                <span class="menu-price">₹55</span>
-                                <button class="menu-order-btn" data-order="Veg Sandwich" id="order-sandwich-btn">Order
-                                    💬</button>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="menu-card">
-                        <div class="menu-card-img">
-                            <img src="images/snack.png" alt="Rusks" loading="lazy" />
-                        </div>
-                        <div class="menu-card-body">
-                            <h3 class="menu-card-name">Milk Rusks (6 pcs)</h3>
-                            <p class="menu-card-desc">Twice-baked sweet bread rusks, perfect with tea or coffee.</p>
-                            <div class="menu-card-row">
-                                <span class="menu-price">₹30</span>
-                                <button class="menu-order-btn" data-order="Milk Rusks 6 pieces"
-                                    id="order-rusk-btn">Order 💬</button>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-
-            <!-- ── BEVERAGES ── -->
-            <div class="menu-category reveal" data-cat="beverages" id="beverages">
-                <div class="category-header">
-                    <h2>🥤 Beverages</h2>
-                    <div class="line"></div>
-                </div>
-                <div class="menu-grid">
-                    <article class="menu-card">
-                        <div class="menu-card-img">
-                            <img src="images/beverage.png" alt="Chocolate Milkshake" loading="lazy" />
-                        </div>
-                        <div class="menu-card-body">
-                            <h3 class="menu-card-name">Chocolate Milkshake</h3>
-                            <p class="menu-card-desc">Thick, creamy chocolate milkshake topped with whipped cream.</p>
-                            <div class="menu-card-row">
-                                <span class="menu-price">₹80</span>
-                                <button class="menu-order-btn" data-order="Chocolate Milkshake"
-                                    id="order-chocshake-btn">Order 💬</button>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="menu-card">
-                        <div class="menu-card-img">
-                            <img src="images/beverage.png" alt="Mango Juice" loading="lazy" />
-                        </div>
-                        <div class="menu-card-body">
-                            <h3 class="menu-card-name">Mango Juice</h3>
-                            <p class="menu-card-desc">Fresh squeezed Alfonso mango juice – sweet and refreshing.</p>
-                            <div class="menu-card-row">
-                                <span class="menu-price">₹60</span>
-                                <button class="menu-order-btn" data-order="Mango Juice" id="order-mango-btn">Order
-                                    💬</button>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="menu-card">
-                        <div class="menu-card-img">
-                            <img src="images/beverage.png" alt="Tender Coconut" loading="lazy" />
-                        </div>
-                        <div class="menu-card-body">
-                            <h3 class="menu-card-name">Vanilla Milkshake</h3>
-                            <p class="menu-card-desc">Cold creamy vanilla shake, a classic bakery companion.</p>
-                            <div class="menu-card-row">
-                                <span class="menu-price">₹70</span>
-                                <button class="menu-order-btn" data-order="Vanilla Milkshake"
-                                    id="order-vanshake-btn">Order 💬</button>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="menu-card">
-                        <div class="menu-card-img">
-                            <img src="images/beverage.png" alt="Cold Coffee" loading="lazy" />
-                        </div>
-                        <div class="menu-card-body">
-                            <h3 class="menu-card-name">Cold Coffee</h3>
-                            <p class="menu-card-desc">Iced coffee blended with milk and sugar – energy in a glass.</p>
-                            <div class="menu-card-row">
-                                <span class="menu-price">₹65</span>
-                                <button class="menu-order-btn" data-order="Cold Coffee" id="order-coldcoffee-btn">Order
-                                    💬</button>
-                            </div>
-                        </div>
-                    </article>
+            <!-- Dynamic Menu Container -->
+            <div id="dynamic-menu-container">
+                <div class="menu-loading">
+                    <div class="menu-loading-icon">&#127874;</div>
+                    <p>Loading our delicious menu...</p>
                 </div>
             </div>
 
@@ -450,13 +148,13 @@
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Categories</h4>
+                    <h4>Cake Categories</h4>
                     <ul>
-                        <li><a href="#cakes">Cakes</a></li>
-                        <li><a href="#pastries">Pastries</a></li>
-                        <li><a href="#puffs">Puffs</a></li>
-                        <li><a href="#snacks">Snacks</a></li>
-                        <li><a href="#beverages">Beverages</a></li>
+                        <li><a href="#cat-royal-icing">Royal Icing</a></li>
+                        <li><a href="#cat-classic">Classic Flavours</a></li>
+                        <li><a href="#cat-premium">Premium Range</a></li>
+                        <li><a href="#cat-signature">Chef's Signature</a></li>
+                        <li><a href="#cat-cheese">Cheese Cakes</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -479,8 +177,9 @@
     </footer>
 
     <div id="toast" role="alert" aria-live="polite"></div>
-    <script src="js/security.js"></script>
-    <script src="js/main.js"></script>
+    <script type="module" src="/js/security.js"></script>
+    <script type="module" src="/js/main.js"></script>
+    <script type="module" src="/js/menu-data.js"></script>
 </body>
 
 </html>

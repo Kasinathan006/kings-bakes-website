@@ -1,0 +1,26 @@
+{
+  "name": "kings-bakers",
+  "version": "1.0.0",
+  "description": "**Project Name:** Kings Bakes Bakery Website\r **Developed By:** (Your Name)\r **Purpose:** To create a professional online presence and ordering support website for a local bakery.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jayashree00602/-kings-bakes-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/jayashree00602/-kings-bakes-website/issues"
+  },
+  "homepage": "https://github.com/jayashree00602/-kings-bakes-website#readme",
+  "devDependencies": {
+    "vite": "^7.3.1"
+  }
+}

@@ -1,0 +1,10 @@
+node_modules/
+backend/node_modules/
+dist/
+.env
+backend/.env
+.env.production
+*.log
+.DS_Store
+Thumbs.db
+"KING NAKES MENU - 8 PAGES.pdf"

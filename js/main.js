@@ -5,11 +5,18 @@
  */
 'use strict';
 
-/* ── Navbar Scroll ── */
+/* ── Navbar Scroll + Hero Parallax ── */
 const navbar = document.getElementById('navbar');
-if (navbar) {
+const heroBgEl = document.querySelector('.hero-bg');
+// On inner pages (no full-screen hero), darken navbar immediately
+if (navbar && !document.getElementById('hero')) {
+    navbar.classList.add('scrolled');
+}
+if (navbar || heroBgEl) {
     window.addEventListener('scroll', () => {
-        navbar.classList.toggle('scrolled', window.scrollY > 60);
+        const sy = window.scrollY;
+        if (navbar && document.getElementById('hero')) navbar.classList.toggle('scrolled', sy > 60);
+        if (heroBgEl) heroBgEl.style.transform = `translateY(${sy * 0.28}px)`;
     }, { passive: true });
 }
 
@@ -181,26 +188,39 @@ document.querySelectorAll('[data-order]').forEach(btn => {
             message: KBSecurity.sanitize(fields.message.el.value.trim()),
         };
 
-        // ── Submit (WhatsApp fallback for static site) ──
+        // ── Submit to Backend API ──
         if (submitBtn) {
             submitBtn.disabled = true;
             submitBtn.textContent = 'Sending…';
         }
 
-        // Simulate async send
-        await new Promise(r => setTimeout(r, 900));
+        try {
+            const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/v1/contact`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            const data = await response.json();
 
-        // For a static site → open WhatsApp with the message
-        const waMsg = `New Enquiry from ${payload.name}\nPhone: ${payload.phone}${payload.email ? '\nEmail: ' + payload.email : ''}\nMessage: ${payload.message}`;
-        const phone = '917639277171';
-        const waURL = `https://wa.me/${phone}?text=${encodeURIComponent(waMsg)}`;
-        window.open(waURL, '_blank', 'noopener,noreferrer');
-
-        if (formMsg) {
-            formMsg.textContent = '✅ Message sent! Redirecting you to WhatsApp…';
-            formMsg.className = 'form-msg success';
+            if (data.success) {
+                if (formMsg) {
+                    formMsg.textContent = '✅ Message sent successfully! We will contact you soon.';
+                    formMsg.className = 'form-msg success';
+                }
+                form.reset();
+            } else {
+                if (formMsg) {
+                    formMsg.textContent = 'Error: ' + (data.error || 'Failed to send');
+                    formMsg.className = 'form-msg error';
+                }
+            }
+        } catch (error) {
+            if (formMsg) {
+                formMsg.textContent = 'Network error. Please try again later.';
+                formMsg.className = 'form-msg error';
+            }
         }
-        form.reset();
+
         // Refresh CSRF token after submit
         KBSecurity.injectCSRFField(form);
 
@@ -231,25 +251,4 @@ document.querySelectorAll('[data-counter]').forEach(el => {
     io.observe(el);
 });
 
-/* ── Menu Filter (menu page) ── */
-(function setupFilter() {
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const categories = document.querySelectorAll('.menu-category');
-    if (!filterBtns.length) return;
 
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            const filter = btn.dataset.filter;
-
-            categories.forEach(cat => {
-                if (filter === 'all' || cat.dataset.cat === filter) {
-                    cat.style.display = '';
-                } else {
-                    cat.style.display = 'none';
-                }
-            });
-        });
-    });
-})();

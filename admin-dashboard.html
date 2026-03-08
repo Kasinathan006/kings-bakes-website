@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Kings Bakes</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: var(--dark-bg);
+            color: #e0d5c5;
+            font-family: 'Outfit', sans-serif;
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        .admin-header {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px 40px;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .admin-header h1 {
+            color: var(--gold-primary);
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .btn-logout {
+            background: transparent;
+            color: #ff6b6b;
+            border: 1px solid #ff6b6b;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-logout:hover {
+            background: #ff6b6b;
+            color: #fff;
+        }
+
+        .admin-content {
+            display: flex;
+            flex: 1;
+            padding: 40px;
+            gap: 40px;
+        }
+
+        .admin-sidebar {
+            width: 250px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .admin-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .admin-menu li {
+            margin-bottom: 10px;
+        }
+
+        .admin-menu a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            padding: 12px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .admin-menu a:hover,
+        .admin-menu a.active {
+            background: rgba(255, 215, 0, 0.1);
+            color: var(--gold-primary);
+        }
+
+        .admin-main {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 12px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        th {
+            color: var(--gold-primary);
+            font-weight: 500;
+        }
+
+        td img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .btn-sm {
+            padding: 6px 12px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 5px;
+        }
+
+        .btn-edit {
+            background: rgba(255, 215, 0, 0.2);
+            color: var(--gold-primary);
+        }
+
+        .btn-delete {
+            background: rgba(255, 107, 107, 0.2);
+            color: #ff6b6b;
+        }
+
+        .btn-add {
+            background: var(--gold-gradient);
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        .btn-add:hover {
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: var(--choco-dark);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-header h2 {
+            color: var(--gold-primary);
+            margin: 0;
+        }
+
+        .close-btn {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #ccc;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(0, 0, 0, 0.3);
+            color: #fff;
+        }
+
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: #222;
+            color: #fff;
+        }
+
+        .form-group input[type="file"] {
+            border: none;
+            padding: 5px 0;
+        }
+
+        .btn-save {
+            background: var(--gold-gradient);
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .admin-hide {
+            display: none;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .stat-card {
+            flex: 1;
+            min-width: 150px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255, 215, 0, 0.15);
+            border-radius: 10px;
+            padding: 18px 22px;
+        }
+
+        .stat-card .stat-label {
+            font-size: 0.78rem;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 6px;
+        }
+
+        .stat-card .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold-primary);
+        }
+
+        .stat-card .stat-sub {
+            font-size: 0.8rem;
+            color: #aaa;
+            margin-top: 2px;
+        }
+
+        /* Unread badge */
+        .unread-badge {
+            background: #e74c3c;
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 20px;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+
+        /* Mark read button */
+        .btn-read {
+            background: rgba(46, 213, 115, 0.15);
+            color: #2ed573;
+        }
+
+        /* Change password form */
+        #change-password-view input {
+            margin-bottom: 10px;
+        }
+
+        .alert-success {
+            background: rgba(46, 213, 115, 0.15);
+            border: 1px solid #2ed573;
+            color: #2ed573;
+            padding: 10px 14px;
+            border-radius: 6px;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .alert-error {
+            background: rgba(231, 76, 60, 0.15);
+            border: 1px solid #e74c3c;
+            color: #e74c3c;
+            padding: 10px 14px;
+            border-radius: 6px;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="admin-header">
+        <h1>Kings Bakes Control Panel</h1>
+        <button class="btn-logout" id="logout-btn">Logout</button>
+    </header>
+
+    <div class="admin-content">
+        <aside class="admin-sidebar">
+            <ul class="admin-menu">
+                <li><a href="#" class="active" data-target="products-view">&#128230; Products</a></li>
+                <li><a href="#" data-target="contacts-view">&#128140; Inquiries <span id="unread-badge" class="unread-badge" style="display:none;">0</span></a></li>
+                <li><a href="#" data-target="change-password-view">&#128274; Change Password</a></li>
+            </ul>
+        </aside>
+
+        <main class="admin-main">
+            <!-- Stats Bar -->
+            <div class="stats-bar">
+                <div class="stat-card">
+                    <div class="stat-label">Total Products</div>
+                    <div class="stat-value" id="stat-products">—</div>
+                    <div class="stat-sub">in catalogue</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Total Inquiries</div>
+                    <div class="stat-value" id="stat-contacts">—</div>
+                    <div class="stat-sub">from customers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Unread Messages</div>
+                    <div class="stat-value" id="stat-unread">—</div>
+                    <div class="stat-sub">need attention</div>
+                </div>
+            </div>
+
+            <!-- Products View -->
+            <div id="products-view" class="view-section">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <h2 style="color:white; margin-top:0;">Manage Products</h2>
+                    <button class="btn-add" id="open-add-modal">+ Add New Product</button>
+                </div>
+                <div style="overflow-x:auto;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Category</th>
+                                <th>Price</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="products-table-body">
+                            <tr>
+                                <td colspan="6" style="text-align:center;">Loading products...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Contacts View -->
+            <div id="contacts-view" class="view-section admin-hide">
+                <h2 style="color:white; margin-top:0;">Contact Inquiries</h2>
+                <div style="overflow-x:auto;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Name</th>
+                                <th>Phone</th>
+                                <th>Message</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="contacts-table-body">
+                            <tr>
+                                <td colspan="5" style="text-align:center;">Loading inquiries...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- Change Password View -->
+            <div id="change-password-view" class="view-section admin-hide">
+                <h2 style="color:white; margin-top:0;">Change Admin Password</h2>
+                <form id="change-pw-form" style="max-width:400px;">
+                    <div class="form-group">
+                        <label>New Password</label>
+                        <input type="password" id="new-password" class="form-control" required minlength="8" placeholder="Min 8 characters">
+                    </div>
+                    <div class="form-group">
+                        <label>Confirm New Password</label>
+                        <input type="password" id="confirm-password" class="form-control" required placeholder="Repeat new password">
+                    </div>
+                    <button type="submit" class="btn-save">Update Password</button>
+                    <div id="pw-success" class="alert-success">Password updated successfully!</div>
+                    <div id="pw-error" class="alert-error">Error updating password.</div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add/Edit Product Modal -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Add Product</h2>
+                <span class="close-btn" id="close-modal">&times;</span>
+            </div>
+            <form id="product-form">
+                <input type="hidden" id="product-id">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" id="p-name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Price (₹)</label>
+                    <input type="number" id="p-price" class="form-control" required min="0">
+                </div>
+                <div class="form-group">
+                    <label>Category</label>
+                    <select id="p-category" required>
+                        <option value="cakes">Cakes</option>
+                        <option value="pastries">Pastries</option>
+                        <option value="puffs">Puffs</option>
+                        <option value="snacks">Snacks</option>
+                        <option value="beverages">Beverages</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <input type="text" id="p-desc" class="form-control" required maxlength="200">
+                </div>
+                <div class="form-group" style="display:flex; justify-content:space-between;">
+                    <label style="display:flex; align-items:center; gap:5px;"><input type="checkbox" id="p-veg" checked>
+                        Is Veg?</label>
+                    <label style="display:flex; align-items:center; gap:5px;"><input type="checkbox" id="p-available"
+                            checked> Available?</label>
+                    <label style="display:flex; align-items:center; gap:5px;"><input type="checkbox" id="p-featured">
+                        Featured?</label>
+                </div>
+                <div class="form-group">
+                    <label>Image Upload</label>
+                    <input type="file" id="p-image" accept="image/*" style="color:white;">
+                    <small style="color:#aaa; display:block; margin-top:5px;">Leave empty to keep existing image (when
+                        updating).</small>
+                </div>
+                <button type="submit" class="btn-save">Save Product</button>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="/js/admin-dashboard.js"></script>
+</body>
+
+</html>
