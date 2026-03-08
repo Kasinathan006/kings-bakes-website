@@ -1,0 +1,31 @@
+services:
+  # Backend API (Node.js/Express)
+  - type: web
+    name: kings-bakes-backend
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: node server.js
+    plan: free
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: MONGO_URI
+        sync: false   # Set this manually in Render dashboard
+      - key: JWT_SECRET
+        sync: false   # Set this manually in Render dashboard
+      - key: FRONTEND_URL
+        value: https://kings-bakes-website.netlify.app
+
+  # Frontend Static Site
+  - type: web
+    name: kings-bakes-frontend
+    runtime: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    plan: free
+    envVars:
+      - key: VITE_API_URL
+        value: https://kings-bakes-backend.onrender.com
