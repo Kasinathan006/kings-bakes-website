@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none'; form-action 'self';" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+    <meta name="description"
+        content="Browse the full Kings Bakes menu – cakes, pastries, puffs, snacks, and beverages. Order via WhatsApp in Tiruchirappalli." />
+    <meta name="robots" content="index, follow" />
+    <title>Menu – Kings Bakes | Cakes, Pastries, Puffs & More</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎂</text></svg>" />
+  <script type="module" crossorigin src="/assets/menu-B8GQxBzc.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/style-ZJwhCG7L.js">
+  <link rel="modulepreload" crossorigin href="/assets/main-DI7ZjIaK.js">
+  <link rel="stylesheet" crossorigin href="/assets/style-Dpto0TJg.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav id="navbar" role="navigation" aria-label="Main navigation">
+        <div class="container nav-inner">
+            <a href="index.html" class="nav-logo" aria-label="Kings Bakes Home">
+                <div class="logo-icon">🎂</div>
+                <span class="logo-text">Kings <span>Bakes</span></span>
+            </a>
+            <ul class="nav-links" id="navLinks" role="menubar">
+                <li role="none"><a href="index.html" role="menuitem" id="nav-home">Home</a></li>
+                <li role="none"><a href="about.html" role="menuitem" id="nav-about">About</a></li>
+                <li role="none"><a href="menu.html" role="menuitem" id="nav-menu">Menu</a></li>
+                <li role="none"><a href="contact.html" role="menuitem" id="nav-contact">Contact</a></li>
+                <li role="none" class="nav-cta">
+                    <a href="https://wa.me/917639277171?text=Hi%20Kings%20Bakes!%20I%20want%20to%20place%20an%20order."
+                        class="btn btn-whatsapp" rel="noopener noreferrer" target="_blank" id="nav-order-btn">
+                        💬 Order Now
+                    </a>
+                </li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle mobile menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero" aria-label="Menu page header">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>›</span>
+                <span>Menu</span>
+            </div>
+            <h1 class="page-hero-title">Our Menu</h1>
+            <p class="page-hero-sub">85+ handcrafted cake flavours — Royal Icing, Classic, Premium, Chef's Signature, and Cheese Cakes. Order via WhatsApp.</p>
+        </div>
+    </section>
+
+    <!-- MENU SECTION -->
+    <section class="menu-section">
+        <div class="container">
+
+            <!-- Eggless Info Bar -->
+            <div id="menu-note-bar" class="menu-note-bar" style="display:none;" aria-label="Important cake notes">
+                <span class="mnb-icon">&#9733;</span>
+                <span>Eggless cakes available at <strong>+&#8377;100/kg</strong></span>
+                <span class="mnb-sep">&#8226;</span>
+                <span>Prices may vary for custom designs</span>
+                <span class="mnb-sep">&#8226;</span>
+                <span>Keep refrigerated until serving</span>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="menu-search-wrap">
+                <span class="search-icon">&#128269;</span>
+                <input
+                    type="search"
+                    id="searchMenu"
+                    class="menu-search-input"
+                    placeholder="Search any cake flavour..."
+                    autocomplete="off"
+                    aria-label="Search menu items"
+                />
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="menu-filters" role="group" aria-label="Cake category filters">
+                <button class="filter-btn active" data-filter="all" id="filter-all">All Categories</button>
+                <button class="filter-btn" data-filter="royal-icing" id="filter-royal">&#128081; Royal Icing</button>
+                <button class="filter-btn" data-filter="classic" id="filter-classic">&#127874; Classic</button>
+                <button class="filter-btn" data-filter="premium" id="filter-premium">&#128142; Premium Range</button>
+                <button class="filter-btn" data-filter="signature" id="filter-signature">&#11088; Chef's Signature</button>
+                <button class="filter-btn" data-filter="cheese" id="filter-cheese">&#129361; Cheese Cakes</button>
+            </div>
+
+            <!-- Dynamic Menu Container -->
+            <div id="dynamic-menu-container">
+                <div class="menu-loading">
+                    <div class="menu-loading-icon">&#127874;</div>
+                    <p>Loading our delicious menu...</p>
+                </div>
+            </div>
+
+            <!-- Order CTA -->
+            <div style="background:linear-gradient(135deg,var(--choco),var(--choco-mid));border-radius:var(--radius-lg);padding:48px;text-align:center;margin-top:64px;"
+                class="reveal">
+                <h2 style="font-family:'Playfair Display',serif;color:#fff;font-size:1.8rem;margin-bottom:12px;">Can't
+                    See What You're Looking For?</h2>
+                <p style="color:rgba(255,245,228,0.75);margin-bottom:28px;">Message us on WhatsApp – we love custom
+                    orders and special requests!</p>
+                <a href="https://wa.me/917639277171?text=Hi%20Kings%20Bakes!%20I%20have%20a%20custom%20order%20request."
+                    class="btn btn-whatsapp" rel="noopener noreferrer" target="_blank" id="menu-custom-order-btn"
+                    style="font-size:1rem;padding:15px 34px;">
+                    💬 Place Custom Order
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo-text">Kings <span>Bakes</span></div>
+                    <p>A beloved local bakery serving freshly baked cakes, pastries, and snacks to the people of
+                        Tiruchirappalli with passion and love since 2019.</p>
+                    <div class="social-links">
+                        <a href="https://wa.me/917639277171" target="_blank" rel="noopener noreferrer"
+                            class="social-link" aria-label="WhatsApp">💬</a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link"
+                            aria-label="Instagram">📸</a>
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-link"
+                            aria-label="Facebook">👍</a>
+                        <a href="https://zomato.com" target="_blank" rel="noopener noreferrer" class="social-link"
+                            aria-label="Zomato">🍽️</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Cake Categories</h4>
+                    <ul>
+                        <li><a href="#cat-royal-icing">Royal Icing</a></li>
+                        <li><a href="#cat-classic">Classic Flavours</a></li>
+                        <li><a href="#cat-premium">Premium Range</a></li>
+                        <li><a href="#cat-signature">Chef's Signature</a></li>
+                        <li><a href="#cat-cheese">Cheese Cakes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:07639277171">📞 076392 77171</a></li>
+                        <li><a href="https://wa.me/917639277171" target="_blank" rel="noopener noreferrer">💬 WhatsApp
+                                Order</a></li>
+                        <li style="color:rgba(255,245,228,0.6);font-size:0.88rem;line-height:1.5;margin-top:8px;">
+                            Sathanur Main Rd, Sundar Nagar, Tiruchirappalli – 620021
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Kings Bakes. All rights reserved. Made with <span class="heart">❤️</span> in Trichy.</p>
+                <div class="sec-badge">🔒 Secured Website</div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toast" role="alert" aria-live="polite"></div>
+</body>
+
+</html>
